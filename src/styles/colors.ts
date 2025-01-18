@@ -9,5 +9,5 @@ export const colors = {
   Gray200: '#E4E4E7',
   Gray100: '#F4F4F5',
 
-  Primary: '#9E89BE',
+  Primary: '#694FA0',
 };
