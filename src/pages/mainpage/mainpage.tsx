@@ -112,7 +112,7 @@ function MainPage() {
 										{receivedLetter.map((item, index) => (
 											<CustomBox key={index} $width="90%" $height="auto" $backgroundcolor="white" $border="1px solid #D9D9D9" $padding="1rem">
 												<CustomFont $color="blue">Q: {item.Q}</CustomFont>
-												<CustomFont $color="blue" $fontweight="bold">Q: {item.A}</CustomFont>
+												<CustomFont $color="blue" $fontweight="bold">A: {item.A}</CustomFont>
 											</CustomBox>
 										))}
 									</>
