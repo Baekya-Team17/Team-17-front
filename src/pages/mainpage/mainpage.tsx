@@ -3,8 +3,8 @@ import { useState } from "react";
 import CustomColumn from "../../components/CustomColumn";
 import CustomBox from "../../components/CustomBox";
 
-import IfParent from "./mainpageBlocks/ifParent";
-import IfChild from "./mainpageBlocks/ifChild";
+import IfParent from "./mainpageBlocks/IfParent";
+import IfChild from "./mainpageBlocks/IfChild";
 import LetterComponent from "./LetterComponent";
 
 import backImg from "../../assets/Main_backImg.svg";
