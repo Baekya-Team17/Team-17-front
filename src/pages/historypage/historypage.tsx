@@ -4,6 +4,7 @@ import CustomFont from '../../components/CustomFont';
 import { colors } from '../../styles/colors';
 import styled from 'styled-components';
 import backImg from '../../assets/Main_backImg.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Divider = styled.div`
   width: 100%;
@@ -47,6 +48,8 @@ const FixedBtn = styled.div`
   bottom: 90px;
 `;
 function HistoryPage() {
+  const navigate = useNavigate();
+
   // 질문, 답변 mockData
   const historyData = [
     { question: '가장 행복했던 순간은?', answer: '너희들이 태어났을 때' },
@@ -85,7 +88,9 @@ function HistoryPage() {
             <AnswerText>{item.answer}</AnswerText>
           </WritingBox>
         ))}
-        <FixedBtn>직접 질문 등록하기</FixedBtn>
+        <FixedBtn onClick={() => navigate('/questionpage')}>
+          직접 질문 등록하기
+        </FixedBtn>
       </CustomColumn>
     </CustomBox>
   );
