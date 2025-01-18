@@ -44,7 +44,7 @@ const FixedBtn = styled.div`
   background-color: ${colors.Primary};
   color: white;
   border-radius: 2.5rem;
-  right: 16px;
+  margin-left: 210px;
   bottom: 90px;
 `;
 function HistoryPage() {
@@ -65,9 +65,9 @@ function HistoryPage() {
   ];
 
   return (
-    <CustomBox $width="100%" $height="auto" $backgroundimg={backImg}>
+    <CustomBox $width="420px" $height="auto" $backgroundimg={backImg}>
       <CustomColumn
-        $width="100%"
+        $width="420px"
         $minHeight="92vh"
         $alignitems="center"
         $justifycontent="flex-start"
