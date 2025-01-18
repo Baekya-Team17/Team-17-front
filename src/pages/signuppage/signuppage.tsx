@@ -8,6 +8,8 @@ import CustomFont from '../../components/CustomFont';
 import CustomInput from '../../components/CustomInput';
 import HeaderBox from '../../components/HeaderBox';
 import { colors } from '../../styles/colors';
+import { postGroups, postRegister } from '../../apis/User';
+import { useNavigate } from 'react-router-dom';
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -22,7 +24,7 @@ export const InputWrapper = styled.div`
 
 export const StyledInput = styled.input`
   border: none;
-  width: 70%;
+  width: 65%;
   outline: none;
   padding: 8px 12px;
   background-color: transparent;
@@ -39,7 +41,7 @@ export const StyledButton = styled.button`
   padding: 0.8rem 2rem;
   font-size: 1.6rem;
 `;
-const ErrorMessage = styled.span<{ hasError?: boolean }>`
+export const ErrorMessage = styled.span<{ hasError?: boolean }>`
   font-size: 1.4rem;
   color: ${({ hasError }) => (hasError ? 'red' : 'transparent')};
   height: 2.7rem;
@@ -47,14 +49,28 @@ const ErrorMessage = styled.span<{ hasError?: boolean }>`
   transition: color 0.3s ease;
 `;
 function SignupPage() {
+  const navigate = useNavigate();
+
   const {
     register, // Input 필드와 연결
     handleSubmit, // 폼 제출 핸들러
     formState: { errors }, // 유효성 검증 에러 관리
   } = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: any) => {
+    try {
+      const response = await postRegister(data);
+      console.log('회원가입 성공:', response.data);
+      window.localStorage.setItem('loginData', response.data);
+      const groupcreate = await postGroups(response.data.user.id);
+      console.log(groupcreate);
+
+      // 성공 시 처리 로직 (예: 페이지 이동)
+      navigate('/loginpage');
+    } catch (error: any) {
+      console.error('로그인 실패:', data);
+      // 실패 시 에러 처리 (예: 사용자에게 알림)
+    }
   };
 
   return (

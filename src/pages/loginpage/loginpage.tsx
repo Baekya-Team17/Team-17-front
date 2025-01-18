@@ -10,7 +10,7 @@ import CustomInput from '../../components/CustomInput';
 import HeaderBox from '../../components/HeaderBox';
 import CustomBox from '../../components/CustomBox';
 import { colors } from '../../styles/colors';
-import { postLogin, PostLogin } from '../../apis/Login';
+import { postLogin, PostLogin } from '../../apis/User';
 
 const SignUpContainer = styled.div`
   display: flex;
