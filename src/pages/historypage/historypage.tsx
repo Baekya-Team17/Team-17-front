@@ -1,10 +1,9 @@
 import CustomBox from '../../components/CustomBox';
-import CustomButton from '../../components/CustomButton';
 import CustomColumn from '../../components/CustomColumn';
 import CustomFont from '../../components/CustomFont';
-import HeaderBox from '../../components/HeaderBox';
 import { colors } from '../../styles/colors';
 import styled from 'styled-components';
+import backImg from '../../assets/Main_backImg.svg';
 
 const Divider = styled.div`
   width: 100%;
@@ -45,7 +44,7 @@ const FixedBtn = styled.div`
   color: white;
   border-radius: 2.5rem;
   right: 16px;
-  bottom: 17px;
+  bottom: 90px;
 `;
 function HistoryPage() {
   // 질문, 답변 mockData
@@ -63,28 +62,32 @@ function HistoryPage() {
   ];
 
   return (
-    <CustomColumn
-      $width="100%"
-      $minHeight="100vh"
-      $alignitems="center"
-      $justifycontent="flex-start"
-      $gap="1.5rem"
-    >
-      <CustomColumn $height="0.5vh" />
-      <CustomFont $font="2.2rem">지난 질문</CustomFont>
-      <CustomColumn $height="0.3vh" />
+    <CustomBox $width="100%" $height="auto" $backgroundimg={backImg}>
+      <CustomColumn
+        $width="100%"
+        $minHeight="92vh"
+        $alignitems="center"
+        $justifycontent="flex-start"
+        $gap="1.5rem"
+      >
+        <CustomColumn $height="0.5vh" />
+        <CustomFont $font="2.2rem" $color="white">
+          지난 질문
+        </CustomFont>
+        <CustomColumn $height="0.3vh" />
 
-      {historyData.map((item, index) => (
-        <WritingBox key={index}>
-          <CustomFont $color="black" $font="1.6rem">
-            Q. {item.question}
-          </CustomFont>
-          <Divider />
-          <AnswerText>{item.answer}</AnswerText>
-        </WritingBox>
-      ))}
-      <FixedBtn>직접 질문 등록하기</FixedBtn>
-    </CustomColumn>
+        {historyData.map((item, index) => (
+          <WritingBox key={index}>
+            <CustomFont $color="black" $font="1.6rem">
+              Q. {item.question}
+            </CustomFont>
+            <Divider />
+            <AnswerText>{item.answer}</AnswerText>
+          </WritingBox>
+        ))}
+        <FixedBtn>직접 질문 등록하기</FixedBtn>
+      </CustomColumn>
+    </CustomBox>
   );
 }
 
