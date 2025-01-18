@@ -12,6 +12,7 @@ interface CustomBoxProps {
 	$margintop?: string;
 	$padding?: string;
 	$backgroundcolor?: string;
+	$backgroundimg?: string;
 	$color?: string;
 	$border?: string;
 	$borderradius?: string;
@@ -32,7 +33,13 @@ const CustomBox = styled.div<CustomBoxProps>`
   margin: ${(props) => props.$margin || "0"};
   margin-top: ${(props) => props.$margintop || '0'};
   padding: ${(props) => props.$padding || "0"};
-  background: ${(props) => props.$backgroundcolor || "#1E1E1E"};
+  // background: ${(props) => props.$backgroundcolor || "#1E1E1E"};
+  background: ${(props) =>
+		props.$backgroundimg
+			? `url(${props.$backgroundimg})`
+			: props.$backgroundcolor || "#1E1E1E"};
+  background-size: cover;
+  background-position: center;
   color: ${(props) => props.color || "black"};
   border: ${(props) => props.$border || "none"};
   border-radius: ${(props) => props.$borderradius || "0.5rem"};

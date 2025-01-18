@@ -6,7 +6,7 @@ import CustomColumn from "./components/CustomColumn";
 
 const Layout: React.FC = () => {
 	return (
-		<CustomColumn $width="100%" $minHeight="90vh">
+		<CustomColumn $width="100%" $minHeight="90vh" $gap="0">
 			<Outlet />
 			<NavigationBar />
 		</CustomColumn>
