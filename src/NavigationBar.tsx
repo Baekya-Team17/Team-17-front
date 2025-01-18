@@ -23,9 +23,11 @@ const NavigationBar: React.FC = () => {
 		navigate("/historypage");
 	};
 
-	// const GoMy = () => {
-	// 	navigate("/mypage");
-	// };
+	// 렌더링하지 않을 경로
+	const excludedPaths = ["/", "/loginpage", "/signuppage"];
+	if (excludedPaths.includes(location.pathname)) {
+		return null;
+	}
 
 	const homeIconColor = location.pathname === "/mainpage" ? "#694FA0" : "black";
 	const postOfficeIconColor = location.pathname === "/historypage" ? "#694FA0" : "black";
