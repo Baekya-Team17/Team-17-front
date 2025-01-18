@@ -5,6 +5,9 @@ import CustomFont from "../../components/CustomFont";
 import CustomRow from "../../components/CustomRow";
 import CustomBox from "../../components/CustomBox";
 
+import backImg from '../../assets/Main_backImg.svg';
+import { FaPlus } from "react-icons/fa6";
+
 import PlusGroupModal from "./mainpageModals/PlusGroupModal";
 import PlusMemberModal from "./mainpageModals/PlusMemberModal";
 
@@ -49,13 +52,9 @@ function MainPage() {
 	};
 
 	return (
-		<>
+		<CustomBox $width="100%" $height="auto" $backgroundimg={backImg}>
 			<CustomColumn $width="100%" $minHeight="100vh" $justifycontent="flex-start">
-				<CustomRow $width="90%" $justifycontent="flex-start">
-					<CustomFont $font="1rem" $color="black">
-						Logo
-					</CustomFont>
-				</CustomRow>
+				<CustomColumn $height="3vh" />
 
 				{/* 서버로부터 유저가 속한 모든 Group 받아와서 출력하도록 수정하기 */}
 				{!haveGroup && (
@@ -124,28 +123,30 @@ function MainPage() {
 
 				<CustomButton
 					$flexDirection="column"
-					$backgroundColor="#F4F4F5"
+					$backgroundColor="#E4E4E7"
 					$width="90%"
 					$alignItems="center"
 					$justifyContent="center"
+					$borderRadius="3rem"
 					$height="10rem"
 					onClick={handleModal}
 				>
 					<CustomFont $color="black" $font="1rem">
-						+
+						<FaPlus />
 					</CustomFont>
 				</CustomButton>
 
 				{haveGroup && (
 					<CustomFont $color="#D9D9D9" $font="1rem">
-						그룹을 생성해주세요!
+						+ 버튼을 눌러 그룹을 생성해주세요!
 					</CustomFont>
 				)}
+				<CustomColumn $height="3vh" />
 			</CustomColumn>
 
 			<PlusGroupModal openModal={openModal} onClose={handleCloseModal} onSelectRole={handleSelectRole} />
 			<PlusMemberModal openModal={inviteModal} onClose={CloseMemberModal} />
-		</>
+		</CustomBox>
 	);
 }
 

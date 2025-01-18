@@ -8,14 +8,13 @@ import CustomBox from "./components/CustomBox";
 import CustomFont from "./components/CustomFont";
 import StyledImg from "./components/StyledImg";
 
-// import { MdHomeFilled } from "react-icons/md";
-// import { MdLocalPostOffice } from "react-icons/md";
-// import { BsPersonFill } from "react-icons/bs";
-
 import NavImg from './assets/Nav_background.svg';
 import NavIcon1 from './assets/Nav_icon_post.svg';
 import NavIcon2 from './assets/Nav_icon_letter.svg';
 import NavIcon3 from './assets/Nav_icon_my.svg';
+import NavIcon1off from './assets/Nav_icon_post_off.svg';
+import NavIcon2off from './assets/Nav_icon_letter_off.svg';
+import NavIcon3off from './assets/Nav_icon_my_off.svg';
 
 const NavigationBar: React.FC = () => {
 	const location = useLocation();
@@ -29,34 +28,66 @@ const NavigationBar: React.FC = () => {
 		navigate("/historypage");
 	};
 
-	// 렌더링하지 않을 경로
+	// 네비바 렌더링x 경로
 	const excludedPaths = ["/", "/loginpage", "/signuppage"];
 	if (excludedPaths.includes(location.pathname)) {
 		return null;
 	}
 
-	// const homeIconColor = location.pathname === "/mainpage" ? "#694FA0" : "black";
-	// const postOfficeIconColor = location.pathname === "/historypage" ? "#694FA0" : "black";
-	// const myPageIconColor = "black";
+	const homeIcon = location.pathname === "/mainpage" ? NavIcon1 : NavIcon1off;
+	const historyIcon = location.pathname === "/historypage" ? NavIcon2 : NavIcon2off;
+	const myPageIcon = location.pathname === "/mypage" ? NavIcon3 : NavIcon3off;
+
+	const homeColor = location.pathname === "/mainpage" ? "black" : "#71717A";
+	const historyColor = location.pathname === "/historypage" ? "black" : "#71717A";
+	const myPageColor = location.pathname === "/mypage" ? "black" : "#71717A";
 
 	return (
-		<CustomBox $width="100%" $height="auto" $backgroundcolor="#D9D9D9" $borderradius="0" $padding="0.5rem" $backgroundimg={NavImg}>
+		<CustomBox
+			$width="100%"
+			$height="auto"
+			$backgroundcolor="#D9D9D9"
+			$borderradius="0"
+			$padding="0.5rem"
+			$backgroundimg={NavImg}
+		>
 			<CustomRow $width="100%" $justifycontent="center" $alignitems="center" $gap="2rem">
-				<CustomButton $flexDirection="column" $backgroundColor="transparent" $width="33%" $height="auto" $padding="0"
-					$gap="0.5rem" onClick={GoMain}>
-					<StyledImg src={NavIcon1} />
-					<CustomFont $color="black">홈</CustomFont>
+				<CustomButton
+					$flexDirection="column"
+					$backgroundColor="transparent"
+					$width="33%"
+					$height="auto"
+					$padding="0"
+					$gap="0.5rem"
+					onClick={GoMain}
+				>
+					<StyledImg src={homeIcon} />
+					<CustomFont $color={homeColor} $fontweight="bold">홈</CustomFont>
 				</CustomButton>
 
-				<CustomButton $flexDirection="column" $backgroundColor="transparent" $width="33%" $height="auto" $padding="0"
-					$gap="0.5rem" onClick={GoHistory}>
-					<StyledImg src={NavIcon2} />
-					<CustomFont $color="black">우체통</CustomFont>
+				<CustomButton
+					$flexDirection="column"
+					$backgroundColor="transparent"
+					$width="33%"
+					$height="auto"
+					$padding="0"
+					$gap="0.5rem"
+					onClick={GoHistory}
+				>
+					<StyledImg src={historyIcon} />
+					<CustomFont $color={historyColor} $fontweight="bold">우체통</CustomFont>
 				</CustomButton>
 
-				<CustomButton $flexDirection="column" $backgroundColor="transparent" $width="33%" $height="auto" $padding="0" $gap="0.5rem">
-					<StyledImg src={NavIcon3} />
-					<CustomFont $color="black">마이페이지</CustomFont>
+				<CustomButton
+					$flexDirection="column"
+					$backgroundColor="transparent"
+					$width="33%"
+					$height="auto"
+					$padding="0"
+					$gap="0.5rem"
+				>
+					<StyledImg src={myPageIcon} />
+					<CustomFont $color={myPageColor} $fontweight="bold">마이페이지</CustomFont>
 				</CustomButton>
 			</CustomRow>
 		</CustomBox>
