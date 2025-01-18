@@ -29,7 +29,7 @@ const NavigationBar: React.FC = () => {
 	};
 
 	// 네비바 렌더링x 경로
-	const excludedPaths = ["/", "/loginpage", "/signuppage"];
+	const excludedPaths = ["/", "/loginpage", "/signuppage", "/questionpage"];
 	if (excludedPaths.includes(location.pathname)) {
 		return null;
 	}
