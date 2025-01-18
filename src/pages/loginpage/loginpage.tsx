@@ -52,10 +52,16 @@ function LoginPage() {
   };
 
   return (
-    <CustomBox $width="100vw" $height="auto" $backgroundcolor={colors.Gray100}>
+    <CustomBox
+      $width="420px"
+      $height="auto"
+      $backgroundcolor={colors.Gray100}
+      $padding="1rem"
+      $overflowx="hidden"
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <CustomColumn
-          $width="100vw"
+          $width="420px"
           $height="100vh"
           $justifycontent="space-between"
           $alignitems="flex-start"
