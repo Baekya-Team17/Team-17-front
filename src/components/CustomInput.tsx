@@ -17,7 +17,7 @@ const CustomInput = styled.input<CustomInputProps>`
   color: ${(props) => props.$color || '#000000'};
   font-weight: ${(props) => props.$fontweight || 'normal'};
   font-family: ${(props) => props.$fontfamily || 'none'};
-  margin-bottom: ${(props) => props.$marginbottom || '34px'};
+  margin-bottom: ${(props) => props.$marginbottom || '5px'};
   border: none;
   border-radius: 1.4rem;
   background-color: white;
